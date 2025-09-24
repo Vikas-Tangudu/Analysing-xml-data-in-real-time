@@ -19,6 +19,11 @@ The challenge is to process these large XML files and provide **key metrics** to
 The solution is designed as a **modular, low-latency data processing pipeline**. Key design choices include **streaming XML processing** and **in-memory storage** to avoid bottlenecks.
 
 ![Architecture Diagram](architecture_diagram.png)
+
+## Key Performance Requirements
+**Solid-State Drives (SSDs):** The machine running this process must use an SSD. The I/O (Input/Output) speed of reading a 1 GB file is a major bottleneck. A high-speed NVMe SSD is recommended.
+
+**Sufficient I/O Bandwidth:** The underlying hardware and network infrastructure must support the high-speed reads required to pull the 1 GB file from disk into memory quickly, ensuring we don't starve the CPU while waiting for data.
 ---
 
 ## Core Components
@@ -65,3 +70,41 @@ Ensure you have a Redis instance running locally (or at the configured REDIS_HOS
 
 ### 4. Run the Script
 ```python main.py```
+
+# Alternative Solutions to Consider
+
+Below are several alternative approaches that could be evaluated for improved performance or scalability.
+
+---
+
+## 1. Switch to **lxml** for Faster Stream Parsing
+Instead of using `xml.sax`, we could adopt the **lxml** library.
+- **Why**: lxml is built on top of C-based libraries (`libxml2`), making it significantly more efficient and faster compared to Python’s pure-SAX implementation.
+- **Benefit**: Achieves better performance with minimal code changes while still supporting streaming-style parsing.
+
+---
+
+## 2. Fundamental Architectural Shift: Use a Message Queue
+We could rethink the initial data generation model.
+- **How it works**:
+  - Instead of machines writing large 1 GB XML files, they publish individual XML records directly to a central **message queue** like **Apache Kafka**.
+  - A downstream processing engine (e.g., Apache Flink or a Kafka consumer) processes metrics in real time.
+
+- **Benefits**:
+  - Transforms the workflow from batch-based to **real-time streaming**.
+  - Provides a **scalable, fault-tolerant, and robust** architecture for continuous analytics.
+
+---
+
+## 3. "Shred and Process" with Command-Line Tools
+This approach separates parsing from calculation, leveraging optimized tools at each stage.
+
+- **Step 1 – Shred the XML**:
+  Use a tool like **xmlstarlet** to quickly convert XML into a tabular **CSV** format.
+  - Runs extremely fast since `xmlstarlet` is a compiled C program.
+
+- **Step 2 – Process the CSV**:
+  Load the CSV into an in-process analytics engine like **DuckDB**.
+  - Perform aggregations with familiar **SQL queries**.
+  - Push the final metrics to **Redis** for downstream consumption.
+---
