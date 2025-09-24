@@ -1,0 +1,102 @@
+<log>
+    <product id="10001">
+        <metric_x>12.3</metric_x>
+        <metric_y>7.8</metric_y>
+        <metric_z>15.6</metric_z>
+    </product>
+    <product id="10002">
+        <metric_x>5.4</metric_x>
+        <metric_y>9.1</metric_y>
+        <metric_z>11.2</metric_z>
+    </product>
+    <product id="10003">
+        <metric_x>8.2</metric_x>
+        <metric_y>14.5</metric_y>
+        <metric_z>6.9</metric_z>
+    </product>
+    <product id="10004">
+        <metric_x>16.7</metric_x>
+        <metric_y>12.3</metric_y>
+        <metric_z>9.8</metric_z>
+    </product>
+    <product id="10005">
+        <metric_x>3.9</metric_x>
+        <metric_y>10.2</metric_y>
+        <metric_z>14.1</metric_z>
+    </product>
+    <product id="10006">
+        <metric_x>11.0</metric_x>
+        <metric_y>7.4</metric_y>
+        <metric_z>13.7</metric_z>
+    </product>
+    <product id="10007">
+        <metric_x>6.5</metric_x>
+        <metric_y>8.9</metric_y>
+        <metric_z>12.8</metric_z>
+    </product>
+    <product id="10008">
+        <metric_x>14.1</metric_x>
+        <metric_y>15.2</metric_y>
+        <metric_z>10.5</metric_z>
+    </product>
+    <product id="10009">
+        <metric_x>9.3</metric_x>
+        <metric_y>11.7</metric_y>
+        <metric_z>8.4</metric_z>
+    </product>
+    <product id="10010">
+        <metric_x>7.6</metric_x>
+        <metric_y>13.5</metric_y>
+        <metric_z>16.2</metric_z>
+    </product>
+    <product id="10011">
+        <metric_x>10.8</metric_x>
+        <metric_y>6.9</metric_y>
+        <metric_z>14.7</metric_z>
+    </product>
+    <product id="10012">
+        <metric_x>5.5</metric_x>
+        <metric_y>12.1</metric_y>
+        <metric_z>9.9</metric_z>
+    </product>
+    <product id="10013">
+        <metric_x>13.2</metric_x>
+        <metric_y>8.3</metric_y>
+        <metric_z>11.5</metric_z>
+    </product>
+    <product id="10014">
+        <metric_x>6.8</metric_x>
+        <metric_y>14.6</metric_y>
+        <metric_z>7.2</metric_z>
+    </product>
+    <product id="10015">
+        <metric_x>15.0</metric_x>
+        <metric_y>9.8</metric_y>
+        <metric_z>13.3</metric_z>
+    </product>
+    <product id="10016">
+        <metric_x>4.7</metric_x>
+        <metric_y>11.0</metric_y>
+        <metric_z>10.9</metric_z>
+    </product>
+    <product id="10017">
+        <metric_x>12.6</metric_x>
+        <metric_y>7.2</metric_y>
+        <metric_z>15.0</metric_z>
+    </product>
+    <product id="10018">
+        <metric_x>8.9</metric_x>
+        <metric_y>13.1</metric_y>
+        <metric_z>9.5</metric_z>
+    </product>
+    <product id="10019">
+        <metric_x>14.8</metric_x>
+        <metric_y>10.4</metric_y>
+        <metric_z>12.0</metric_z>
+    </product>
+    <product id="10020">
+        <metric_x>7.1</metric_x>
+        <metric_y>15.0</metric_y>
+        <metric_z>8.7</metric_z>
+    </product>
+</log>
