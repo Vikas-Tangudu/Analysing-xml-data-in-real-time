@@ -51,8 +51,9 @@ The solution is designed as a **modular, low-latency data processing pipeline**.
 ## How to Run
 
 ### 1. Clone the Repository
-``` git clone Analysing-xml-data-in-real-time
-cd Analysing-xml-data-in-real-time
+```
+    git clone Analysing-xml-data-in-real-time
+    cd Analysing-xml-data-in-real-time
 ```
 
 ###  2. Install Dependencies
