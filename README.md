@@ -1,14 +1,14 @@
 # Real-Time Semiconductor Data Processing
 
 ## Problem Statement
-In a semiconductor manufacturing facility, products move along an assembly line with 7 machines. Each machine produces a **1 GB XML log file** for every product. A new product arrives at the next machine every **15 seconds**.
+In a semiconductor manufacturing facility, products move along an assembly line with various machines. Each machine produces a **~1 GB XML log file** for every scan. Then in **15 seconds** the batch of products move to the next machine.
 
 The challenge is to process these large XML files and provide **key metrics** to the next machine **within this 15-second window**.
 
 ---
 
 ## Constraints & Key Challenges
-- **Low Latency:** Must process each 1 GB file within **15 seconds**.
+- **Low Latency:** Must process each ~1 GB file within **15 seconds**.
 - **High Volume:** Up to **200 files/hour per machine**.
 - **Large File Size:** Traditional XML parsers (e.g., DOM) are too slow and memory-intensive.
 - **Low-Latency Architecture:** Requires a **streaming, in-memory approach**. Can run **on-premise or in specialized cloud setups**.
@@ -18,6 +18,7 @@ The challenge is to process these large XML files and provide **key metrics** to
 ## Architectural Overview
 The solution is designed as a **modular, low-latency data processing pipeline**. Key design choices include **streaming XML processing** and **in-memory storage** to avoid bottlenecks.
 
+![Architecture Diagram](architecture_diagram.png)
 ---
 
 ## Core Components
@@ -28,7 +29,7 @@ The solution is designed as a **modular, low-latency data processing pipeline**.
 
 ### 2. XML Processor (SAX Parser)
 - **Technology:** `xml.sax` (Python Standard Library)
-- **Role:** Processes XML files as a **stream**, extracting metrics on-the-fly. Calculates the **mean metric** for each product while reading sequentially.
+- **Role:** Processes XML files as a **stream**, while triggering events for tags so we can extract metrics on the fly. Calculates the **mean metric** for each product while reading sequentially.
 
 ### 3. In-Memory Data Store (Redis)
 - **Technology:** Redis (on-premise instance)
@@ -50,8 +51,7 @@ The solution is designed as a **modular, low-latency data processing pipeline**.
 ## How to Run
 
 ### 1. Clone the Repository
-```
-git clone <your-repo-url>
+``` git clone <your-repo-url>
 cd <your-repo-name>
 ```
 
